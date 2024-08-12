@@ -15,3 +15,11 @@ picking the area seems like what that was used for, double check
 -create other attacks/consumables
 
 - Union from typing 
+
+#TODO: When starting the game after making the changes for the input_handler, when I die
+the character still keeps moving. 
+
+***
+Note to self this is why it would be a good idea to start submiting this into 
+github so I can just revert to a older version.
+***
