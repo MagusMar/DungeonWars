@@ -101,7 +101,8 @@ class EventHandler(BaseEventHandler):
             #A valid action was performed.
             if not self.engine.player.is_alive:
                 #The player was killed sometime during or after the action.
-                return MainGameEventHandler(self.engine) #Returm to the main handler.
+                return GameOverEventHandler(self.engine) #Returm to the main handler.
+            return MainGameEventHandler(self.engine)
         return self
 
     def handle_action(self, action: Optional[Action]) -> bool:
