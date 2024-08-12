@@ -2,6 +2,8 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 from tcod.console import Console
 from tcod.map import compute_fov
+import lzma
+import pickle
 
 import exceptions
 from message_log import MessageLog
@@ -48,3 +50,9 @@ class Engine:
         )
 
         render_names_at_mouse_location(console=console, x=21, y=44, engine=self)
+
+    def save_as(self, filename:str) -> None:
+        """Save this Engine instance as a compressed file."""
+        save_data = lzma.compress(pickle.dumps(self))
+        with open(filename, "wb") as f:
+            f.write(save_data)
