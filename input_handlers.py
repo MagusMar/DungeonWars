@@ -327,7 +327,7 @@ class SelectIndexHandler(AskUserEventHandler):
         raise NotImplementedError()
     
 class LookHandler(SelectIndexHandler):
-    """Lets the player look around using the keyboard."""
+    """Lets the player loo////k around using the keyboard."""
 
     def on_index_selected(self, x: int, y: int) -> MainGameEventHandler:
         """Return to main handler."""
@@ -435,7 +435,13 @@ class MainGameEventHandler(EventHandler):
         action: Optional[Action] = None
 
         key = event.sym
+        modifier = event.mod
         player = self.engine.player
+
+        if key == tcod.event.KeySym.PERIOD and modifier & (
+            tcod.event.KMOD_LSHIFT | tcod.event.KMOD_RSHIFT
+        ):
+            return actions.TakeStairsAction(player)
 
         if key in MOVE_KEYS:
             dx, dy = MOVE_KEYS[key]

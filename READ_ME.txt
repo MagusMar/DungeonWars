@@ -23,3 +23,7 @@ the character still keeps moving.
 Note to self this is why it would be a good idea to start submiting this into 
 github so I can just revert to a older version.
 ***
+
+***
+See how I can traverse between previous floors, is there any reason for it in this case if there
+are no monsters left ? 
